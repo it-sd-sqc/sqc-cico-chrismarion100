@@ -61,4 +61,23 @@ Use `./build.sh` to build CiCo and `./run.sh` to run it if using the command lin
 ## Expected results
 * Should display "Developer" for the user name.
 
+# Module 4: Restrict Non-Numerical Input
+
+## Test steps
+1. Build and run CiCo.
+2. Enter "abcd" into the card field and click Update.
+
+## Expected results
+* The field should ignore non-numeric characters and not allow them to be entered.
+
+# Module 4: Restrict Non-Numerical Input (Mixed)
+
+## Test steps
+1. Build and run CiCo.
+2. Enter "123abc456" into the card field and click Update.
+
+## Expected results
+* Only the numeric characters ("123456") should appear in the field.
+
+
 
