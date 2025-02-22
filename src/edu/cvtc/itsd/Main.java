@@ -35,32 +35,29 @@ public class Main {
   // Internal classes ///////////////////////////////////////////////////////////
   // InputFilter manages user input to the card number field.
   private static class InputFilter extends DocumentFilter {
-    private static final int MAX_LENGTH = 8;
+      private static final int MAX_LENGTH = 8;
 
-    @Override
-    public void insertString(FilterBypass fb, int offset, String stringToAdd, AttributeSet attr)
-        throws BadLocationException
-    {
-      if (fb.getDocument() != null) {
-        super.insertString(fb, offset, stringToAdd, attr);
+      @Override
+      public void insertString(FilterBypass fb, int offset, String stringToAdd, AttributeSet attr)
+              throws BadLocationException {
+          if (stringToAdd.matches("\\d+")) {  // Only allow digits
+              super.insertString(fb, offset, stringToAdd, attr);
+          } else {
+              Toolkit.getDefaultToolkit().beep();  // Alert for invalid input
+          }
       }
-      else {
-        Toolkit.getDefaultToolkit().beep();
-      }
-    }
 
-    @Override
-    public void replace(FilterBypass fb, int offset, int lengthToDelete, String stringToAdd, AttributeSet attr)
-        throws BadLocationException
-    {
-      if (fb.getDocument() != null) {
-        super.replace(fb, offset, lengthToDelete, stringToAdd, attr);
+      @Override
+      public void replace(FilterBypass fb, int offset, int lengthToDelete, String stringToAdd, AttributeSet attr)
+              throws BadLocationException {
+          if (stringToAdd.matches("\\d+")) {  // Only allow digits
+              super.replace(fb, offset, lengthToDelete, stringToAdd, attr);
+          } else {
+              Toolkit.getDefaultToolkit().beep();  // Alert for invalid input
+          }
       }
-      else {
-        Toolkit.getDefaultToolkit().beep();
-      }
-    }
   }
+
 
   // Lookup the card information after button press ///////////////////////////
   public static class Update implements ActionListener {
