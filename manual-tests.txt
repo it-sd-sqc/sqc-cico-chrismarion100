@@ -62,3 +62,15 @@ Use `./build.sh` to build CiCo and `./run.sh` to run it if using the command lin
 * Should display "Developer" for the user name.
 
 
+Ticket 502: Ensure the application exits when the window is closed.
+
+Steps:
+1. Open the application.
+2. Close the application window by clicking the "X" button in the top-right corner.
+3. Verify that the application fully shuts down.
+   - Check if the application disappears from the screen.
+   - Open Task Manager (Windows) or Activity Monitor (Mac) and ensure no related process remains running.
+
+Expected Result:
+- The application should close completely.
+- No background processes should remain running after closing the window.
