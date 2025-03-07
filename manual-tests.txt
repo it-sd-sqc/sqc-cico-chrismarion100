@@ -61,4 +61,13 @@ Use `./build.sh` to build CiCo and `./run.sh` to run it if using the command lin
 ## Expected results
 * Should display "Developer" for the user name.
 
+# Module 6: auto scan card
+## test steps
+1. build and run CiCo
+2. Enter 00000000 into the field
 
+## Expected results
+* should display status page
+
+## Actual results
+had to click update to see status panel

@@ -53,12 +53,20 @@ public class Main {
     public void replace(FilterBypass fb, int offset, int lengthToDelete, String stringToAdd, AttributeSet attr)
         throws BadLocationException
     {
+
+
       if (fb.getDocument() != null) {
         super.replace(fb, offset, lengthToDelete, stringToAdd, attr);
       }
       else {
         Toolkit.getDefaultToolkit().beep();
       }
+
+      //process card if input is length of card
+      if(fb.getDocument().getLength() == MAX_LENGTH) {
+      Main.processCard();
+    }
+
     }
   }
 
@@ -260,11 +268,11 @@ public class Main {
     fieldNumber.setForeground(Color.magenta);
     panelMain.add(fieldNumber);
 
-    JButton updateButton = new JButton("Update");
-    updateButton.setAlignmentX(JComponent.CENTER_ALIGNMENT);
-    updateButton.addActionListener(new Update());
-    updateButton.setForeground(Color.green);
-    panelMain.add(updateButton);
+//    JButton updateButton = new JButton("Update");
+//    updateButton.setAlignmentX(JComponent.CENTER_ALIGNMENT);
+//    updateButton.addActionListener(new Update());
+//    updateButton.setForeground(Color.green);
+//    panelMain.add(updateButton);
 
     panelMain.add(Box.createVerticalGlue());
 
